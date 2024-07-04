@@ -8,9 +8,6 @@ create_user() {
   if [ $? -eq 0 ]; then
     echo "User $username created successfully."
     
-    # Set user password
-    sudo passwd $username
-    
     # Assign permissions (example: adding the user to the sudo group)
     sudo usermod -aG sudo $username
     
