@@ -7,9 +7,9 @@ prompt_user() {
 }
 
 # Prompt user for email, username, and ccache size
-email=$(prompt_user "Enter your email")
-username=$(prompt_user "Enter your username")
-ccache_size=$(prompt_user "Enter ccache size (e.g., 50G)")
+email=$(prompt_user "Enter your github email")
+username=$(prompt_user "Enter your github username")
+ccache_size=$(prompt_user "Enter ccache preferred size (e.g., 50G)")
 
 # Install required packages
 sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf imagemagick lib32readline-dev lib32z1-dev libelf-dev liblz4-tool libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev -y
