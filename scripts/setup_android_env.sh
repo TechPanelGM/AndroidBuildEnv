@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Function to prompt user for input
+prompt_user() {
+    read -p "$1: " input
+    echo $input
+}
+
+# Prompt user for email, username, and ccache size
+email=$(prompt_user "Enter your email")
+username=$(prompt_user "Enter your username")
+ccache_size=$(prompt_user "Enter ccache size (e.g., 50G)")
+
 # Install required packages
 sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git git-lfs gnupg gperf imagemagick lib32readline-dev lib32z1-dev libelf-dev liblz4-tool libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev -y
 
@@ -43,8 +54,8 @@ echo 'fi' >> ~/.profile
 source ~/.profile
 
 # Configure Git
-git config --global user.email "your_email@example.com"
-git config --global user.name "Your Name"
+git config --global user.email "$email"
+git config --global user.name "$username"
 
 # Install Git LFS
 git lfs install
@@ -54,7 +65,7 @@ export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 
 # Set ccache size and enable compression
-ccache -M 50G
+ccache -M $ccache_size
 ccache -o compression=true
 
 echo "Environment setup complete!"
