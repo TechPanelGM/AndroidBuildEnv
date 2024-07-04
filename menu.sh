@@ -39,11 +39,11 @@ while true; do
   case $choice in
     2)
       chmod +x scripts/setup_android_env.sh
-      ./create_user.sh
+      . scripts/setup_android_env.sh
       ;;
     1)
       chmod +x scripts/create_user.sh
-      ./create_user.sh
+      . scripts/create_user.sh
       ;;
     0)
       echo "Exiting the menu. Goodbye!"
