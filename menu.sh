@@ -38,11 +38,11 @@ while true; do
   read -p "Please enter your choice: " choice
   case $choice in
     2)
-      chmod +x menu/setup_android_env.sh
+      chmod +x scripts/setup_android_env.sh
       ./create_user.sh
       ;;
     1)
-      chmod +x menu/create_user.sh
+      chmod +x scripts/create_user.sh
       ./create_user.sh
       ;;
     0)
